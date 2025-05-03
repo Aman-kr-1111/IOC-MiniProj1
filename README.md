@@ -1,74 +1,94 @@
-📋 Spring Customer Management System
-    
-📖 Overview
-This project is a Spring-based Customer Management System demonstrating Real-time Dependency Injection (DI) and the Strategy Design Pattern. It allows storing customer information (name, address, bill amount, discount, and final amount) in a database, with support for both MySQL and Oracle databases. The application uses Spring IoC for loose coupling and HikariCP for connection pooling.
-Key features:
+# 📋 Spring Customer Management System
 
-🛠️ Modular architecture with DAO layer for database operations.
-🔄 Switch between MySQL and Oracle databases via configuration.
-📊 Calculate discounts and final bill amounts dynamically.
-🧪 JUnit 5 for testing (configured but not implemented in this code).
+## 📖 Overview
+This project is a **Spring-based Customer Management System** demonstrating:
+- ✅ Real-time **Dependency Injection (DI)**
+- 🧠 Use of the **Strategy Design Pattern**
 
-🏗️ Project Structure
+It allows storing customer details (name, address, bill amount, discount, final amount) into a **MySQL** or **Oracle** database.
+
+🔧 Key Features:
+- 🛠️ Modular architecture with **DAO layer** for database operations  
+- 🔄 Switch between **MySQL** and **Oracle** databases via configuration  
+- 📊 Dynamically calculate **discounts** and **final bill amounts**  
+- 🧪 JUnit 5 setup for testing (config ready, test not implemented)  
+- ⚡ Uses **Spring IoC** for loose coupling & **HikariCP** for fast connection pooling  
+
+---
+
+## 🏗️ Project Structure
 ├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── com.nt
-│   │   │       ├── controller
-│   │   │       │   └── CustomerOperationController.java
-│   │   │       ├── dao
-│   │   │       │   ├── CustomerMYSQLDAOImpl.java
-│   │   │       │   ├── CustomerOracleDAOImpl.java
-│   │   │       │   └── ICustomerDAO.java
-│   │   │       ├── model
-│   │   │       │   └── Customer.java
-│   │   │       ├── service
-│   │   │       │   ├── CustomerMgmtServiceImpl.java
-│   │   │       │   └── ICustomerMgmtService.java
-│   │   │       └── test
-│   │   │           └── RealtimeDITest.java
-│   │   └── resources
-│   │       ├── com/nt/cfgs
-│   │       │   └── applicationContext.xml
-│   │       └── com/nt/commons
-│   │           └── Info.properties
+│ ├── main
+│ │ ├── java
+│ │ │ └── com.nt
+│ │ │ ├── controller
+│ │ │ │ └── CustomerOperationController.java
+│ │ │ ├── dao
+│ │ │ │ ├── CustomerMYSQLDAOImpl.java
+│ │ │ │ ├── CustomerOracleDAOImpl.java
+│ │ │ │ └── ICustomerDAO.java
+│ │ │ ├── model
+│ │ │ │ └── Customer.java
+│ │ │ ├── service
+│ │ │ │ ├── CustomerMgmtServiceImpl.java
+│ │ │ │ └── ICustomerMgmtService.java
+│ │ │ └── test
+│ │ │ └── RealtimeDITest.java
+│ │ └── resources
+│ │ ├── com/nt/cfgs
+│ │ │ └── applicationContext.xml
+│ │ └── com/nt/commons
+│ │ └── Info.properties
 ├── pom.xml
 └── README.md
 
-⚙️ Technologies Used
+yaml
+Copy
+Edit
 
-Java: 17
-Spring Framework: 6.2.5 (spring-context-support, spring-jdbc)
-Maven: 4.0.0
-Databases:
-MySQL (mysql-connector-j: 9.2.0)
-Oracle (ojdbc8: 23.7.0.25.01)
+---
 
+## ⚙️ Technologies Used
+| 🔧 Tool            | 📌 Version            |
+|--------------------|-----------------------|
+| ☕ Java             | 17                    |
+| 🌱 Spring Framework| 6.2.5 (IoC, JDBC)     |
+| 📦 Maven           | 4.0.0                 |
+| 🐬 MySQL Connector | 9.2.0                 |
+| 🍊 Oracle JDBC     | 23.7.0.25.01          |
+| 💧 HikariCP        | 6.2.1                 |
+| 🧪 JUnit           | 5.11.0                |
+| 🛠️ Config Style    | XML-based             |
 
-Connection Pooling: HikariCP 6.2.1
-Testing: JUnit 5.11.0
-Configuration: Spring XML-based configuration
+---
 
-🚀 Getting Started
-Prerequisites
+## 🚀 Getting Started
 
-Java 17 installed
-Maven installed
-MySQL or Oracle database server running
-IDE (e.g., IntelliJ IDEA, Eclipse) recommended
+### ✅ Prerequisites
+- Java 17 installed
+- Maven installed
+- MySQL or Oracle server running
+- IDE like IntelliJ IDEA / Eclipse
 
-Installation
+---
 
-Clone the repository:
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+### 🛠️ Installation
 
-
-Set up the database:
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+Set up database
 
 For MySQL:
-Create a database named NTSPBMS716DB.
-Create the table:CREATE TABLE SPRING_CUSTOMER_INFO (
+
+sql
+Copy
+Edit
+CREATE DATABASE NTSPBMS716DB;
+USE NTSPBMS716DB;
+
+CREATE TABLE SPRING_CUSTOMER_INFO (
     CNO INT PRIMARY KEY AUTO_INCREMENT,
     CNAME VARCHAR(50),
     CADDRS VARCHAR(100),
@@ -76,12 +96,12 @@ Create the table:CREATE TABLE SPRING_CUSTOMER_INFO (
     DISCOUNT DOUBLE,
     FINALAMOUNT DOUBLE
 );
-
-
-
-
 For Oracle:
-Create a schema and table:CREATE TABLE SPRING_CUSTOMER_INFO (
+
+sql
+Copy
+Edit
+CREATE TABLE SPRING_CUSTOMER_INFO (
     CNO NUMBER PRIMARY KEY,
     CNAME VARCHAR2(50),
     CADDRS VARCHAR2(100),
@@ -90,149 +110,186 @@ Create a schema and table:CREATE TABLE SPRING_CUSTOMER_INFO (
     FINALAMOUNT NUMBER(10,2)
 );
 CREATE SEQUENCE CNO_SEQ1 START WITH 1 INCREMENT BY 1;
+⚙️ Configure Info.properties
+Location: src/main/resources/com/nt/commons/Info.properties
 
+✅ MySQL:
 
-
-
-
-
-Configure database properties:
-
-Edit src/main/resources/com/nt/commons/Info.properties:
-For MySQL (already configured):jdbc.driver=com.mysql.cj.jdbc.Driver
+properties
+Copy
+Edit
+jdbc.driver=com.mysql.cj.jdbc.Driver
 jdbc.url=jdbc:mysql:///NTSPBMS716DB
 jdbc.username=root
 jdbc.password=root
 dao.id=custDAO-mysql
+🔁 Oracle (Uncomment):
 
-
-For Oracle (uncomment and configure):jdbc.driver=oracle.jdbc.driver.OracleDriver
-jdbc.url=jdbc:oracle:thin:@localhost:1521:xe
-jdbc.username=system
-jdbc.password=tiger
-dao.id=custDAO-oracle
-
-
-
-
-
-
-Build the project:
+properties
+Copy
+Edit
+# jdbc.driver=oracle.jdbc.driver.OracleDriver
+# jdbc.url=jdbc:oracle:thin:@localhost:1521:xe
+# jdbc.username=system
+# jdbc.password=tiger
+# dao.id=custDAO-oracle
+🔨 Build the Project
+bash
+Copy
+Edit
 mvn clean install
+▶️ Run the Application
+Run the main class:
 
-
-Run the application:
-
-Execute the RealtimeDITest class:public class RealtimeDITest {
-    public static void main(String[] args) { ... }
+java
+Copy
+Edit
+// RealtimeDITest.java
+public class RealtimeDITest {
+    public static void main(String[] args) {
+        // code to launch Spring and interact
+    }
 }
+Provide customer details in terminal:
 
+Name
 
-Input customer details (name, address, bill amount, discount percentage) when prompted.
+Address
 
+Bill amount
 
+Discount %
 
 📝 Example Usage
-MySQL Example
+✅ MySQL Example
+Input:
 
-Ensure MySQL is configured in Info.properties (as shown above).
-Run RealtimeDITest.
-Input:Enter customer name:: John Doe
+yaml
+Copy
+Edit
+Enter customer name:: John Doe
 Enter customer address:: 123 Main St
 Enter customer bill amount:: 1000
 Enter discount percentage:: 10
+Output:
 
+cpp
+Copy
+Edit
+Customer Registered having BillAmount::1000.0 Discount Amount::100.0 final Amount::900.0
+Check in DB:
 
-Output:Customer Registered having BillAmount::1000.0 Discount Amount::100.0 final Amount::900.0
+sql
+Copy
+Edit
+SELECT * FROM SPRING_CUSTOMER_INFO;
+CNO	CNAME	CADDRS	BILLAMT	DISCOUNT	FINALAMOUNT
+1	John Doe	123 Main St	1000.0	10.0	900.0
 
+🟠 Oracle Example
+Update Info.properties for Oracle (as shown earlier), then rerun.
 
-Check the SPRING_CUSTOMER_INFO table in MySQL:SELECT * FROM SPRING_CUSTOMER_INFO;
+Input:
 
-Expected result:CNO | CNAME     | CADDRS       | BILLAMT | DISCOUNT | FINALAMOUNT
-1   | John Doe  | 123 Main St  | 1000.0  | 10.0     | 900.0
-
-
-
-Oracle Example
-
-Update Info.properties for Oracle (as shown above).
-Run RealtimeDITest.
-Input:Enter customer name:: Jane Smith
+yaml
+Copy
+Edit
+Enter customer name:: Jane Smith
 Enter customer address:: 456 Oak Ave
 Enter customer bill amount:: 2000
 Enter discount percentage:: 15
+Output:
 
+cpp
+Copy
+Edit
+Customer Registered having BillAmount::2000.0 Discount Amount::300.0 final Amount::1700.0
+DB Output:
 
-Output:Customer Registered having BillAmount::2000.0 Discount Amount::300.0 final Amount::1700.0
+CNO	CNAME	CADDRS	BILLAMT	DISCOUNT	FINALAMOUNT
+1	Jane Smith	456 Oak Ave	2000.0	15.0	1700.0
 
+⚙️ How It Works
+🎮 Controller Layer (CustomerOperationController)
+Accepts user input
 
-Check the SPRING_CUSTOMER_INFO table in Oracle:SELECT * FROM SPRING_CUSTOMER_INFO;
+Delegates to service layer
 
-Expected result:CNO | CNAME      | CADDRS      | BILLAMT | DISCOUNT | FINALAMOUNT
-1   | Jane Smith | 456 Oak Ave | 2000.0  | 15.0     | 1700.0
+Uses @Autowired for DI
 
+🧠 Service Layer (CustomerMgmtServiceImpl)
+Calculates discount & final amount
 
+Calls DAO for data persistence
 
-🛠️ How It Works
+Uses @Qualifier("db") for dynamic DAO selection
 
-Controller Layer (CustomerOperationController):
+🗄️ DAO Layer (CustomerMYSQLDAOImpl, CustomerOracleDAOImpl)
+Implements ICustomerDAO
 
-Receives customer data and delegates to the service layer.
-Uses @Autowired to inject the service.
+Uses HikariCP for pooling
 
+MySQL → uses AUTO_INCREMENT
 
-Service Layer (CustomerMgmtServiceImpl):
+Oracle → uses SEQUENCE
 
-Calculates discount and final amount.
-Calls the DAO layer to persist data.
-Uses @Qualifier("db") to inject the appropriate DAO based on Info.properties.
+🧾 Configuration
+🗂️ applicationContext.xml:
 
+Configures:
 
-DAO Layer (CustomerMYSQLDAOImpl or CustomerOracleDAOImpl):
+HikariCP DataSource
 
-Implements ICustomerDAO to insert customer data.
-Uses HikariCP (HikariDataSource) for efficient database connections.
-MySQL uses AUTO_INCREMENT for the primary key, while Oracle uses a sequence (CNO_SEQ1).
+Component scanning
 
+Loads Info.properties
 
-Configuration:
+📝 Info.properties:
 
-applicationContext.xml:
-Configures HikariCP as the DataSource.
-Enables component scanning for @Component, @Service, @Repository.
-Loads properties from Info.properties using <context:property-placeholder>.
+Defines JDBC settings
 
+DAO bean ID (e.g., custDAO-mysql or custDAO-oracle)
 
-Info.properties:
-Specifies database connection details and DAO bean ID (custDAO-mysql or custDAO-oracle).
+🧪 Main Class (RealtimeDITest)
+Loads Spring container
 
+Fetches controller bean
 
-
-
-Main Application (RealtimeDITest):
-
-Creates a Spring IoC container using ClassPathXmlApplicationContext.
-Retrieves the controller bean and processes user input.
-
-
+Accepts user input and processes it
 
 📌 Notes
+XML config used for simplicity. Can be extended to annotation/Java-based config.
 
-The project uses XML-based Spring configuration for simplicity. You can extend it to use Java-based or annotation-based configuration.
-Ensure the database server is running before executing the application.
-Update the database credentials in Info.properties to match your environment.
-The Oracle JDBC driver (ojdbc8) may require manual installation in your Maven repository if not available in the central repository.
+Make sure DB server is running before executing.
+
+Update DB credentials in Info.properties.
+
+Oracle driver may need manual addition to your Maven repo.
 
 🤝 Contributing
-Contributions are welcome! Please follow these steps:
+Fork this repo
 
-Fork the repository.
-Create a new branch (git checkout -b feature-branch).
-Make your changes and commit (git commit -m "Add feature").
-Push to the branch (git push origin feature-branch).
-Create a Pull Request.
+Create a new branch
+
+bash
+Copy
+Edit
+git checkout -b feature-branch
+Commit your changes
+
+bash
+Copy
+Edit
+git commit -m "Add feature"
+Push the branch
+
+bash
+Copy
+Edit
+git push origin feature-branch
+Open a Pull Request
 
 📬 Contact
-For any queries, reach out via GitHub Issues.
+For issues or queries, please raise a ticket on GitHub Issues
 
 Happy Coding! 🚀
