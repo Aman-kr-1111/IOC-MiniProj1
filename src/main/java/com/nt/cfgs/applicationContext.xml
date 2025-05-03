@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- Cfg DriverManagerDataSource as spring bean -->
+    <!-- <bean id="drds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+    	<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+    	<property name="username" value="system"/>
+    	<property name="password" value="tiger"/>
+    </bean> -->
+    
+    <!-- Cfg DriverManagerDataSource as spring bean -->
+    <bean id="hkDs" class="com.zaxxer.hikari.HikariDataSource">
+    	<property name="driverClassName" value="${jdbc.driver}"/>
+    	<property name="jdbcUrl" value="${jdbc.url}"/>
+    	<property name="username" value="${jdbc.username}"/>
+    	<property name="password" value="${jdbc.password}"/>
+    </bean>
+    
+    
+    <!-- enable component scanning to recognize user-defined @Component classes as spring beans -->
+	<context:component-scan base-package="com.nt"/>
+	
+	<context:property-placeholder location="com/nt/commons/Info.properties"/>
+    
+    
+    <!-- alias name for the DAO class bean id  -->
+    <alias name="${dao.id}" alias="db"/>
+    </beans>
