@@ -154,7 +154,6 @@ Enter customer bill amount:: 1000
 Enter discount percentage:: 10
 ```
 
----
 ## 📤 Output
 ```
 Customer Registered having BillAmount::1000.0  
@@ -168,7 +167,7 @@ Final Amount::900.0
 CNO	CNAME	CADDRS	BILLAMT	DISCOUNT	FINALAMOUNT
 1	John Doe	123 Main St	1000.0	10.0	900.0
 ```
----
+
 🛢️ Oracle Example
 
 ## 📥 Input
