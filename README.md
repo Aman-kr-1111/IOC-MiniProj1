@@ -59,7 +59,6 @@ It captures customer data (name, address, bill amount, discount %, final amount)
 | 🧪 JUnit              | 5.11.0                  |
 | 🛠️ Configuration Type | XML-based               |
 
----
 
 ## 🚧 Installation (One-Time Setup)
 
@@ -70,7 +69,6 @@ It captures customer data (name, address, bill amount, discount %, final amount)
 - MySQL or Oracle running  
 - IDE like IntelliJ / Eclipse  
 
----
 
 ## 📥 Clone the Repository
 
@@ -142,7 +140,7 @@ public class RealtimeDITest {
 }
 
 ```
---- 
+
 
 🐬 MySQL Example
 
