@@ -107,9 +107,7 @@ CREATE SEQUENCE CNO_SEQ1 START WITH 1 INCREMENT BY 1;
 ```
 
 
-## ⚙️ Configuration `Info.properties` 
-
-## ✅ MySQL properties
+## ⚙️ Configuration : ✅ MySQL properties
 
 - jdbc.driver=com.mysql.cj.jdbc.Driver  
 - jdbc.url=jdbc:mysql:///NTSPBMS716DB  
