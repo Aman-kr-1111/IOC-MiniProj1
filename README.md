@@ -77,9 +77,7 @@ git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 ```
 
-🗃️ Set Up the Database
-
-## 🐬 MySQL
+## 🗃️ Set Up the Database :🐬 MySQL
 ```
 CREATE DATABASE NTSPBMS716DB;
 
